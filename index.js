@@ -1,8 +1,7 @@
+/**
+ * Stock squeeze short interest data from 
+ * ! Unofficial API for ShortSqueeze.com
+ */
 const shortsqueeze = require('./lib/shortsqueeze')
 
-const main = async () => {
-    const kek = await shortsqueeze('spce')
-    console.log(kek)
-}
-
-main()
+module.exports = shortsqueeze
