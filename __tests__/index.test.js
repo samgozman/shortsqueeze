@@ -1,5 +1,8 @@
 const shortsqueeze = require('..')
 
+// Sometimes jest needs more time in local workflow testing
+jest.setTimeout(10000)
+
 const responseSchema = {
     shortInterestRatioDaysToCover: '',
     shortPercentOfFloat: '',
