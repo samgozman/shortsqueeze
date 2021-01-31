@@ -28,8 +28,25 @@ const responseSchema = {
 
 test('Should get correct parsed data', async () => {
     const stock = await shortsqueeze('GME')
+
+    // Assert that response is not null at least
     expect(stock).not.toBeNull()
+
+    // Assert that String data from the response is correct
     expect(stock.name).toBe('Gamestop Corporation')
+    expect(stock.ticker).toBe('GME')
+
+    // Assert that Number data from the response is a number or null
+    for (const key of Object.keys(stock)) {
+        if (key !== 'name' && key !== 'ticker') {
+            try {
+                expect(stock[key]).toEqual(expect.any(Number))
+            } catch (error) {
+                expect(stock[key]).toBeNull()
+            }
+
+        }
+    }
 })
 
 test('Should get correct response schema', async () => {
@@ -44,10 +61,13 @@ test('Should get correct response schema', async () => {
         return objects.every(object => union.size === Object.keys(object).length)
     }
 
+    // Assert that keys in the response are equal to response schema
     expect(compareObjectsKeys(stock, responseSchema)).toEqual(true)
 })
 
 test('Should get { Error } object if the ticker is incorrect', async () => {
     const stock = await shortsqueeze('$GME go brrr')
+
+    // Assert that there is an error
     expect(stock.error).toBeDefined()
 })
