@@ -1,6 +1,6 @@
 {
   "name": "shortsqueeze",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get detailed short stocks data from shortsqueeze.com",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "financial"
   ],
   "author": "Sam Gozman <sam@gozman.space>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/samgozman/shortsqueeze/issues"
   },

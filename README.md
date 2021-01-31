@@ -1,4 +1,10 @@
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/samgozman/shortsqueeze/Shortsqueeze%20Node.js) 
+[![npm](https://img.shields.io/npm/v/shortsqueeze)](https://www.npmjs.com/package/shortsqueeze)
+![npm bundle size](https://img.shields.io/bundlephobia/min/shortsqueeze)
+![NPM](https://img.shields.io/npm/l/shortsqueeze)
+
 # shortsqueeze
+
 Get detailed short stocks data from shortsqueeze.com
 
 > *Warning! This is unofficial API.*
@@ -8,9 +14,9 @@ Get detailed short stocks data from shortsqueeze.com
 ## Installation
 Install package from NPM
 
-`
+```
 npm install shortsqueeze
-`
+```
 
 ## Features
 Get free stock shorts data from shortsqueeze.com such as: 
@@ -27,7 +33,7 @@ Get free stock shorts data from shortsqueeze.com such as:
 ## Usage
 Use **shortsqueeze** in async functions
 
-```
+```javascript
 const shortsqueeze = require('shortsqueeze')
 
 const main = async () => {
@@ -36,12 +42,11 @@ const main = async () => {
 }
 
 main()
-
 ```
 ### Returns
 > await shortsqueeze('SPCE')
 
-```
+```javascript
 {
   shortInterestRatioDaysToCover: 2.3,
   shortPercentOfFloat: 71.95,
