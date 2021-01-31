@@ -62,7 +62,7 @@ main()
   tradingVolumeToday: 28443498,
   tradingVolumeAverage: 16850000,
   sharesFloat: 53650000,
-  marketCap: NaN,
+  marketCap: null,
   percentOwnedByInsiders: 40,
   percentOwnedByInstitutions: 29.72,
   price: 44.29,
