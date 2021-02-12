@@ -4,33 +4,32 @@ const shortsqueeze = require('..')
 jest.setTimeout(10000)
 
 const responseSchema = {
-    shortInterestRatioDaysToCover: '',
-    shortPercentOfFloat: '',
-    shortPercentIncreaseDecrease: '',
-    shortInterestSharesShort: '',
-    shortInterestSharesShortPrior: '',
-    percentFrom52WkHigh: '',
-    percentFrom50DayMa: '',
-    percentFrom200DayMa: '',
-    percentFrom52WkLow: '',
-    n52WeekPerformance: '',
-    tradingVolumeTodayVsAvg: '',
-    tradingVolumeToday: '',
-    tradingVolumeAverage: '',
-    sharesFloat: '',
-    marketCap: '',
-    percentOwnedByInsiders: '',
-    percentOwnedByInstitutions: '',
-    price: '',
+    shortInterestRatioDaysToCover: null,
+    shortPercentOfFloat: null,
+    shortPercentIncreaseDecrease: null,
+    shortInterestCurrentSharesShort: null,
+    sharesFloat: null,
+    shortInterestPriorSharesShort: null,
+    percentFrom52WkHigh: null,
+    percentFrom50DayMa: null,
+    percentFrom200DayMa: null,
+    percentFrom52WkLow: null,
+    n52WeekPerformance: null,
+    tradingVolumeTodayVsAvg: null,
+    tradingVolumeToday: null,
+    tradingVolumeAverage: null,
+    marketCap: null,
+    percentOwnedByInsiders: null,
+    percentOwnedByInstitutions: null,
+    price: null,
     name: '',
     ticker: ''
 }
 
 test('Should get correct parsed data', async () => {
     const stock = await shortsqueeze('GME')
-
     // Assert that response is not null at least
-    expect(stock).not.toBeNull()
+    expect(stock).not.toEqual({})
 
     // Assert that String data from the response is correct
     expect(stock.name).toBe('Gamestop Corporation')
