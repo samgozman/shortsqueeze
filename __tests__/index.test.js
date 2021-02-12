@@ -28,7 +28,6 @@ const responseSchema = {
 
 test('Should get correct parsed data', async () => {
     const stock = await shortsqueeze('GME')
-    console.log(await shortsqueeze('SPCE'))
     // Assert that response is not null at least
     expect(stock).not.toEqual({})
 
