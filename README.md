@@ -1,4 +1,5 @@
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/samgozman/shortsqueeze/Shortsqueeze%20Node.js) 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/121fb2f4f8994d78b11271510f207b99)](https://www.codacy.com/gh/samgozman/shortsqueeze/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=samgozman/shortsqueeze&amp;utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/v/shortsqueeze)](https://www.npmjs.com/package/shortsqueeze)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/shortsqueeze)
 ![NPM](https://img.shields.io/npm/l/shortsqueeze)
@@ -14,7 +15,7 @@ Get detailed short stocks data from shortsqueeze.com
 ## Installation
 Install package from NPM
 
-```
+```bash
 npm install shortsqueeze
 ```
 
