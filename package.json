@@ -1,6 +1,6 @@
 {
   "name": "shortsqueeze",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Get detailed short stocks data from shortsqueeze.com",
   "main": "index.js",
   "scripts": {
