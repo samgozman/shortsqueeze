@@ -1,6 +1,6 @@
 {
   "name": "shortsqueeze",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Get detailed short stocks data from shortsqueeze.com",
   "main": "index.js",
   "scripts": {
@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/jest": "^26.0.20",
     "eslint": "^7.21.0",
-    "jest": "^26.6.3",
+    "jest": "^27.0.1",
     "nodemon": "^2.0.7"
   }
 }
