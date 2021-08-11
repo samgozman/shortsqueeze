@@ -33,7 +33,7 @@
     "lodash": "^4.17.20"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.20",
+    "@types/jest": "^27.0.0",
     "eslint": "^7.21.0",
     "jest": "^27.0.1",
     "nodemon": "^2.0.7"
