@@ -1,14 +1,14 @@
 # shortsqueeze
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/samgozman/shortsqueeze/Shortsqueeze%20Node.js)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/121fb2f4f8994d78b11271510f207b99)](https://www.codacy.com/gh/samgozman/shortsqueeze/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=samgozman/shortsqueeze&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/121fb2f4f8994d78b11271510f207b99)](https://www.codacy.com/gh/samgozman/shortsqueeze/dashboard?utm_source=github.com&utm_medium=referral&utm_content=samgozman/shortsqueeze&utm_campaign=Badge_Grade)
 [![npm](https://img.shields.io/npm/v/shortsqueeze)](https://www.npmjs.com/package/shortsqueeze)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/shortsqueeze)
 ![NPM](https://img.shields.io/npm/l/shortsqueeze)
 
 Get detailed short stocks data from shortsqueeze.com
 
-> *Warning! This is unofficial API.*
+> _Warning! This is unofficial API._
 > 💎🙌 to the moon 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 
 ## Installation
@@ -23,28 +23,28 @@ npm install shortsqueeze
 
 Get free stock shorts data from shortsqueeze.com such as:
 
-* Short intrest days to cover
-* Short percent float
-* Short % Increase / Decrease
-* Short interest shares short
-* Trading volume today vs Avg
-* Market cap
-* Current price (20 min delay)
-* **AND MANY OTHERS**
+- Short intrest days to cover
+- Short percent float
+- Short % Increase / Decrease
+- Short interest shares short
+- Trading volume today vs Avg
+- Market cap
+- Current price (20 min delay)
+- **AND MANY OTHERS**
 
 ## Usage
 
 Use **shortsqueeze** in async functions
 
 ```javascript
-const shortsqueeze = require('shortsqueeze')
+const shortsqueeze = require('shortsqueeze');
 
 const main = async () => {
-  const stock = await shortsqueeze('SPCE')
-  console.log(stock)
-}
+  const stock = await shortsqueeze('SPCE');
+  console.log(stock);
+};
 
-main()
+main();
 ```
 
 ### Returns
@@ -67,7 +67,7 @@ main()
   tradingVolumeTodayVsAvg: 108.18,
   tradingVolumeToday: 21387935,
   tradingVolumeAverage: 19770000,
-  marketCap: null,
+  marketCap: NaN,
   percentOwnedByInsiders: 40,
   percentOwnedByInstitutions: 29.72,
   price: 54.53,
