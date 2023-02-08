@@ -1,5 +1,5 @@
 import got from 'got';
-import cheerio from 'cheerio';
+import { load } from 'cheerio';
 import _ from 'lodash';
 
 export interface IStock {
@@ -31,49 +31,19 @@ export interface IStock {
  * @return {IStock}
  */
 const parseStockData = (html: string): IStock | undefined => {
-  const $ = cheerio.load(html);
+  const $ = load(html);
+  const htmlTable = $(
+    'body > div.container.index_container > div.row.after-login-data-row.new_index_header > div > div.col-md-6.data-shortsqueeze-right_box_column.right_box_column.for-width-full > div.right_side_box > div.inner_box_2 > table > tbody'
+  ).find('tr');
 
-  // Combine three blocks of data from the main page into one htmlData.
-  // This site has such terrible markup that there is no other way to parse the data from the table.
-  const headerBlock = $(
-      'body > div > table:nth-child(5) > tbody > tr > td:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(3) > td > table > tbody'
-    ),
-    quotePrice = headerBlock
-      .find('tr:nth-child(1)')
-      .find('td:nth-child(2)')
-      .first()
-      .text()
-      .replace(/[\s]|(\$)/gi, ''),
-    quoteName = headerBlock
-      .find('tr:nth-child(1)')
-      .find('td:nth-child(1)')
-      .first()
-      .text()
-      .trim(),
-    quoteTicker = headerBlock
-      .find('tr:nth-child(2)')
-      .find('td:nth-child(1)')
-      .first()
-      .text()
-      .trim(),
-    htmlData = $(
-      'body > div > table:nth-child(5) > tbody > tr > td:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(4) > td > table > tbody'
-    )
-      .find('tr')
-      .add(
-        $(
-          'body > div > table:nth-child(5) > tbody > tr > td:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(5) > td > table > tbody'
-        ).find('tr')
-      )
-      .add(
-        $(
-          'body > div > table:nth-child(5) > tbody > tr > td:nth-child(3) > table:nth-child(3) > tbody > tr:nth-child(6) > td > table > tbody'
-        ).find('tr')
-      );
+  const parsedTable: Record<string, number>[] = [];
+  htmlTable.each((i, line) => {
+    // Skip the header
+    if (i < 3) {
+      return;
+    }
 
-  // Store data in array
-  let shortQuoteData = Array.prototype.map.call(htmlData, (line) => {
-    // Convert to cample case and remove special characters
+    // Convert to camel case and remove special characters
     let key = $(line)
       .find('td:nth-child(1)')
       .first()
@@ -88,31 +58,43 @@ const parseStockData = (html: string): IStock | undefined => {
     // Remove numbers from the end of the key
     key = key.replace(/(?:[0-9]{1,10})$/gm, '');
 
-    // Remove whitespaces, commas, dollar and percentage characters
+    if (key === '') {
+      return;
+    }
+
+    // Remove white spaces, commas, dollar and percentage characters
     const value = $(line)
       .find('td:nth-child(2)')
       .first()
       .text()
       .replace(/[\s]|(%)|(,)|(\$)/gi, '');
 
-    // If value is empty or NaN
-    if (value.toLowerCase() !== 'view') {
-      return {
-        [key]: +value || NaN,
-      };
-    }
+    parsedTable.push({
+      [key]: value.toLowerCase() !== 'view' ? +value || NaN : NaN,
+    });
   });
 
-  // Remove undefined elements (true if any, false if undefined)
-  shortQuoteData = shortQuoteData.filter(Boolean);
+  // Assign key:value pairs to a single object
+  let shortQuoteObj: IStock = Object.assign({}, ...parsedTable);
 
-  // Assingn key:value pairs to a single object
-  let shortQuoteObj: IStock = Object.assign({}, ...shortQuoteData);
+  shortQuoteObj.price =
+    +htmlTable
+      .find('tr:nth-child(1) > td:nth-child(2)')
+      .first()
+      .text()
+      .trim() || NaN;
 
-  // Add "header" data
-  shortQuoteObj.price = +quotePrice || NaN;
-  shortQuoteObj.name = quoteName;
-  shortQuoteObj.ticker = quoteTicker;
+  shortQuoteObj.name = htmlTable
+    .find('tr:nth-child(1) > td')
+    .first()
+    .text()
+    .trim();
+
+  shortQuoteObj.ticker = htmlTable
+    .find('tr:nth-child(2) > td')
+    .first()
+    .text()
+    .trim();
 
   return shortQuoteObj.name.toLowerCase() !== 'not available - try again'
     ? shortQuoteObj

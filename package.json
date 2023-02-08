@@ -1,8 +1,9 @@
 {
   "name": "shortsqueeze",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Get detailed short stocks data from shortsqueeze.com",
   "main": "lib/index.js",
+  "type": "module",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
@@ -29,19 +30,19 @@
   },
   "homepage": "https://github.com/samgozman/shortsqueeze#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "got": "^11.8.2",
+    "cheerio": "=1.0.0-rc.10",
+    "got": "=11.8.6",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.2",
-    "@types/lodash": "^4.14.175",
-    "@types/node": "^18.7.13",
-    "eslint": "^8.0.1",
-    "jest": "^27.0.4",
-    "ts-jest": "^27.0.6",
-    "ts-node": "^10.3.0",
-    "typescript": "^4.4.4"
+    "@types/jest": "^29.4.0",
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^18.13.0",
+    "eslint": "^8.33.0",
+    "jest": "^29.4.2",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
   },
   "files": [
     "lib/**/*"
