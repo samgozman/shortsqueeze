@@ -5,7 +5,9 @@
     "declaration": true,
     "esModuleInterop": true,
     "outDir": "./lib",
-    "strict": true
+    "strict": true,
+    // ! Need this for 'got' package
+    "skipLibCheck": true,
   },
   "include": ["src"],
   "exclude": ["node_modules", "**/__tests__/*"]
