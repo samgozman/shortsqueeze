@@ -1,5 +1,5 @@
 import got from 'got';
-import cheerio from 'cheerio';
+import { load } from 'cheerio';
 import _ from 'lodash';
 
 export interface IStock {
@@ -31,7 +31,7 @@ export interface IStock {
  * @return {IStock}
  */
 const parseStockData = (html: string): IStock | undefined => {
-  const $ = cheerio.load(html);
+  const $ = load(html);
 
   // Combine three blocks of data from the main page into one htmlData.
   // This site has such terrible markup that there is no other way to parse the data from the table.
