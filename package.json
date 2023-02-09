@@ -1,9 +1,8 @@
 {
   "name": "shortsqueeze",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "Get detailed short stocks data from shortsqueeze.com",
   "main": "lib/index.js",
-  "type": "module",
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
