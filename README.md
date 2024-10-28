@@ -1,5 +1,8 @@
 # shortsqueeze
 
+> [!WARNING]
+> This API is deprecated since shortsqueeze.com has removed all free data from their website.
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1DI4VL)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/samgozman/shortsqueeze/Shortsqueeze%20Node.js)
