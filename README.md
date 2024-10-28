@@ -1,5 +1,12 @@
 # shortsqueeze
 
+> [!WARNING]
+> This API is deprecated since shortsqueeze.com has removed all free data from their website.
+
+[![GitHub](https://img.shields.io/github/followers/samgozman?label=Follow&style=social)](
+
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-donate-yellow.svg)](https://ko-fi.com/C0C1DI4VL)
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/C0C1DI4VL)
 
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/samgozman/shortsqueeze/Shortsqueeze%20Node.js)
